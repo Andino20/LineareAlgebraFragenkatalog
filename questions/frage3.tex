@@ -1,0 +1,44 @@
+\section{Frage 3}
+\textit{Das Produkt von Matrizen: Definition und Motivation durch
+lineare Abbildung.}
+
+\begin{definition}[Matrix-Multiplikation]
+    Sei $A\in M(m\times k), B\in M(k\times n)$.
+    \[
+        A\cdot B = (c_{ij})\in M(m\times n)  
+    \]
+    mit
+    \[
+        c_{ij} :=a_{i1}b_{1j} + a_{i2}b_{2j}+ \dots a_{ik}b_{kj}
+    = \sum_{l=1}^{k}a_{il}b_{lj}
+    \]
+\end{definition}
+
+\textbf{Motivation durch lineare Abbildung}. Seien $A\in M(m\times k)$,
+$B\in~M(k\times~n)$ Matrizen und $f_A, f_B$ die entsprechenden 
+linearen Abbildungen. Wir definieren $A\cdot B$ so, dass
+\[
+    f_{AB}=f_A\circ f_B
+.\]
+Sei $e_j$ der $j$-te Einheitsvektor:
+\[
+    e_j=\begin{pmatrix}
+        0\\ \vdots\\ 1\\ \vdots\\ 0
+    \end{pmatrix}
+.\]
+Setzt man $e_j$ in $f_{AB}$ ein, so erhält man
+\begin{align*}
+    f_A \circ f_B (e_j) &= f_A(f_B(e_j)) = f_A(Be_j)\\
+    &=f_A=\begin{pmatrix}
+        b_{1j}\\ \vdots\\ b_{kj}
+    \end{pmatrix} = A \begin{pmatrix}
+        b_{1j}\\ \vdots\\ b_{kj}
+    \end{pmatrix} = \begin{pmatrix}
+        a_{11}b_{1j} + \dots + a_{1k}b_{kj}\\
+        \vdots\\
+        a_{i1}b_{1j} + \dots + a_{ik}b_{kj}\\
+        \vdots\\
+        a_{m1}b_{1j} + \dots + a_{mk}b_{kj}
+    \end{pmatrix}\\
+    &= f_{AB}(e_j) = j\text{-te Spalte der Matrix }AB
+.\end{align*}

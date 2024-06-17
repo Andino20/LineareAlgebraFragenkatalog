@@ -1,0 +1,146 @@
+\section{Frage 5}
+\textit{Der Gauß-Algorithmus: Beschreiben Sie genau wie man eine
+Matrix auf die Gauß-Normalform bringt. Wie schaut dann die Lösung aus?}
+
+\begin{definition}[Elementare Zeilen (Spalten) Umformungen]
+    Sei\\ $A\in M(m\times~n)$. Es gibt 3 Typen von elementaren
+    Zeilen (Spalten) Umformungen.
+    \begin{enumerate}
+        \item[(I)] Vertauschen von zwei Zeilen (Spalten).
+        \item[(II)] Multiplikation einer Zeile (Spalte) mit einer Zahl 
+        $\lambda\neq 0$. 
+        \item[(III)] Addieren eines beliebigen Vielfachen einer Zeile (Spalte)
+        zu einer anderen Zeile (Spalte).
+    \end{enumerate}
+\end{definition}
+
+Sei $Ax=b$ ein Lineares Gleichungssystem mit der Form
+\[
+    \begin{pmatrix}
+        a_{11} & \cdots & a_{1n}\\
+        \vdots & \ddots & \vdots\\
+        a_{m1} & \cdots & a_{mn}
+    \end{pmatrix} \begin{pmatrix}
+        x_1\\ \vdots\\ x_n
+    \end{pmatrix} = \begin{pmatrix}
+        b_1\\ \vdots\\ b_n
+    \end{pmatrix}
+.\]
+Zuerst muss die Matrix $A$ um den inhomogenen Vektor $b$ erweitert werden
+\[
+    (A,b):= \begin{pmatrix}
+        a_{11} & \cdots & a_{1n} & \mid & b_1\\
+        \vdots & \ddots & \vdots & \mid & \vdots\\
+        a_{m1} & \cdots & a_{mn} & \mid & b_n
+    \end{pmatrix}
+.\]
+Anschließend muss die Matrix durch elementare Umformungen in 
+\textbf{Halbdiagonalen Form} gebracht werden, wobei die Spalte
+des inhomogenen Vektors nicht vertauscht werden darf.
+
+\underline{Halbdiagonalen-Form}: Sei $A\neq0 \implies \exists a_{ik} \neq 0$.
+Dann durch Zeilen- und Spalten-Vertauschen $a_{ik}$ an die Stelle $(1,1)$ 
+bringen. Es kann also angenommen werden, dass $a_{11} \neq 0$. 
+
+Multipliziere die erste Zeile mit $\displaystyle\frac{1}{a_{11}}$. 
+Dadurch lautet die erste Zeile
+\[
+    \begin{pmatrix}
+        1 & a_{12}' & \dots & a_{1n} & b_{1}'
+    \end{pmatrix}
+    \text{ mit }
+    a_{1k}' = \frac{a_{1k}}{a_{11}}
+.\]
+Für $i=2,\dots, m$ addiere das ($-a_{i1}$)-fache der 1. Zeile zur $i$-ten
+Zeile
+\[
+    (A,b) \rightsquigarrow (A', b')=\begin{pmatrix}
+        1 & a_{12}' & \dots & a_{1n}' & b_1'\\
+        0 & a_{22}' & \dots & a_{2n}' & b_2'\\
+        &&\vdots\\
+        0 & a_{m2}' & \dots & a_{mn}' & b_n'
+    \end{pmatrix} = \begin{pmatrix}
+        1 & a_{12}' & \dots & a_{1n}' & b_1'\\
+        0\\
+        \vdots & \multicolumn{4}{c}{B} 
+    \end{pmatrix}
+.\]
+Ist $B=0\implies \mathrm{rg}\ A=1$ und die Halbdiagonalen-Form ist erreicht.
+Sonst erhält man durch Vertauschen von Zeilen und Spalten, dass $a_{22}'\neq 0$.
+Wiederhole die Schritte sodass
+\[
+    (A', b') \rightsquigarrow (A'',b'') = \begin{pmatrix}
+        1 & a_{12}' & a_{13}' & \dots & a_{1n}' & b_1'\\
+        0 & 1 & a_{23}' & \dots & a_{2n}' & b_2'\\
+        0 & 0 & a_{33}' & \dots & a_{3n}' & b_3'\\
+        &\vdots&&&\vdots\\
+        0 & 0 & a_{m3}' & \dots & a_{mn}' & b_n'
+    \end{pmatrix}     
+.\]
+Wiederhole das ganze Verfahren bis die \textbf{Matrix in Halbdiagonalen-Form} ist.
+\[
+    \begin{pmatrix}
+        1 & \tilde{a}_{12} & \dots & \tilde{a}_{1r} & \tilde{a}_{1,r+1} & \dots & \tilde{a}_{1n} & \tilde{b}_1\\
+        0 & 1 & \dots & \tilde{a}_{2r} & \tilde{a}_{2,r+1} & \dots & \tilde{a}_{2n} & \tilde{b}_2\\
+        \vdots & \vdots & \ddots & \vdots  & & \vdots\\
+        0 & 0 & 0 & 1 & \tilde{a}_{r,r+1} & \dots & \tilde{a}_{rn} & \tilde{b}_r\\
+        \hline\\
+        0 & 0 & 0 & 0 & 0 & \dots & 0 & \tilde{b}_{r+1}\\
+        &&&& \vdots\\
+        0 & 0 & 0 & 0 & 0 & \dots & 0 & \tilde{b}_{m}
+    \end{pmatrix}    
+.\]
+Falls für ein $b_k \in \{\tilde{b}_{r+1}, \dots, \tilde{b}_{m}\}\ :\ b_k \neq 0$ gilt,
+so hat das Gleichungssystem \textbf{keine Lösung}.
+
+
+Addiere nun geeignet Vielfache der $r$-ten Zeile zu den Zeilen darüber, sodass
+in der $r$-ten Spalte in den oberen ($r-1$)-Zeilen nur 0 steht. Mach gleiche
+für die $r-1$-ten Zeile usw. bis die \textbf{Gauß-Normalform} erreicht ist
+\[
+    (\hat{A}, \hat{b}) = \begin{pmatrix}
+        1 & \dots & 0 & \mid & \hat{a}_{r,r+1} & \dots & \hat{a}_{1n} &\mid & \hat{b}_1\\
+        & \ddots & & \mid & & \vdots & & \mid\\
+        0 & \dots & 1 & \mid & \hat{a}_{r,r+1} & \dots &  \hat{a}_{rn} & \mid & \hat{b}_r\\
+        \hline\\
+        \multicolumn{9}{c}{\vdots}\\
+        \multicolumn{9}{c}{0}\\
+        \multicolumn{9}{c}{\vdots}
+    \end{pmatrix} 
+.\]
+Seien nun folgende Vektoren definiert
+\[
+    \hat{b}:=\begin{pmatrix}
+        \hat{b}_1\\
+        \vdots\\
+        \hat{b}_r\\
+        0\\
+        \vdots\\
+        0
+    \end{pmatrix},
+    \mu_1 := \begin{pmatrix}
+        -\hat{a}_{1,r+1}\\
+        \vdots\\
+        -\hat{a}_{r,r+1}\\
+        1\\
+        0\\
+        \vdots\\
+        0
+    \end{pmatrix},\dots,
+    \mu_{n-r} := \begin{pmatrix}
+        -\hat{a}_{1n}\\
+        \vdots\\
+        -\hat{a}_{rm}\\
+        0\\
+        \vdots\\
+        0\\
+        1
+    \end{pmatrix}
+.\]
+\begin{theorem}[Lösung des Gleichungssystems]
+    Sei $Ax = b$ ein lineares Gleichungssystem mit $A\in M(n\times n), b\in \mathbb{R}^m$.
+    Dann gilt
+    \[
+        \text{Lös}(A,b)=\{ x \in \mathbb{R}^m\ \mid\ x = \hat{b} + \lambda_1\mu_1 + \dots \lambda_{n-r}\mu_{n-r}\ \text{mit}\ \lambda_1,\dots,\lambda_{r-n} \in \mathbb{R} \}    
+    .\]
+\end{theorem}

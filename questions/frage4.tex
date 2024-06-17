@@ -1,0 +1,33 @@
+\section{Frage 4}
+\textit{Wie berechnet man die Anzahl der Wege zwischen zwei Ecken in
+einem gerichteten Graphen? Formulierung und beweisen Sie den entsprechenden
+Satz.}
+
+\begin{theorem}[Anzahl der Wege mit Länge $k$]
+    Sei $G=(V,E)$ ein gerichteter Graph mit Adjazenten-Matrix $A$. Dann ist
+    die Anzahl der Wege von $x_i$ nach $x_j$ ($x_i,x_j\in V$) der Länge $k$
+    der Koeffizient der Matrix $A^k=A\cdot A \cdots$ an der Stelle $(i,j)$.
+\end{theorem}
+
+\begin{proof}
+    Anzahl der Wege mit Länge $k$.
+
+    Beweis über Induktion nach $k$.\\
+    \underline{$k = 1$} Gilt aufgrund der Definition der Adjazenten-Matrix.\\
+    \underline{$k \to k + 1$} Angenommen der Satz gilt für $k$. Wir betrachten
+    einen Weg der Länge $k+1$ von $x_i$ nach $x_j$
+    \[
+        x_i \to \underbrace{x_e \to \cdots \to x_j}_{\text{Weg der Länge }k}  
+    \]
+    für ein $x_e$, also $a_{ie} = 1$. Sei $A^k=(b_{pq})\in M(n\times n)$.
+    Nach der Induktionshypothese gibt es $b_{ej}$ Wege der Länge $k$ von 
+    $x_e$ nach $x_j$, also $b_{ej}$ Wege der Länge $k+1$ von $x_i$ 
+    über $x_e$ nach $x_j$. Wir betrachten alle möglichen Wege über $x_e$ für
+    $e=1,\dots,n$.
+
+    Es gibt $\sum_{e=1}^{n}a_{ie}b_{ej}$ Wege der Länge $k+1$ von $x_i$ nach
+    $x_j$. $\sum_{e=1}^{n}a_{ie}b_{ej}$ ist aber der Koeffizient von
+    $A\cdot A^k=A^{k+1}$ an der Stelle $(i,j)$. Das heißt die Anzahl der Wege
+    von $x_i$ nach $x_j$ der Länge $k+1$ ist der Koeffizient der Matrix
+    $A^{k+1}$ an der Stelle $(i,j)$.
+\end{proof}
