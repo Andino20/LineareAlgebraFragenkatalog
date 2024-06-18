@@ -1,2 +1,69 @@
 \section{Frage 10}
 \textit{Schnitt Gerade - Hyperebene: Beispiele}
+
+Sei $G$ eine Gerade in Parameterform 
+\[ 
+    x=p+\lambda n = \begin{pmatrix}
+        p_1\\\vdots\\p_k
+    \end{pmatrix} + \lambda \begin{pmatrix}
+        n_1\\ \vdots \\n_k
+    \end{pmatrix}
+.\]
+Sei $H$ eine Hyperebene als Lösungsmenge der Gleichung
+\[
+    ax=b
+\]
+mit $a=(a_1,\dots,a_n), b\in \mathbb{R}$. Dann ist der Schnitt
+$G \cap H$:
+\begin{align*}
+    &a(p + \lambda n) = b\\
+    \implies &\lambda a n = b - ap
+.\end{align*}
+Dabei ist $a_n = (a_1,\dots,a_k)\begin{pmatrix}
+    n1\\ \vdots\\n_k
+\end{pmatrix} = a_1n_1+\dots + a_kn_k$ und $ap = a_1p_1 +\dots + a_kp_k$.
+(Fall 1): $a_n \neq 0 \implies \lambda = \frac{b-ap}{an}$ und
+\[
+    x = p + \frac{b-ap}{an} n   
+.\]
+ist der Schnittpunkt von $G$ mit $H$.\\
+(Fall 2): $an=0$\\
+(2a): $b-ap = 0$ 
+\begin{align*}
+    \Longleftrightarrow\ & b = ap \Leftrightarrow p \in H\\
+    \implies & \lambda an = b-ap \text{ gilt für alle } \lambda\in\mathbb{R}\\
+    \implies & G\cap H = G
+\end{align*}
+(2b): $b-ap\neq 0 \Leftrightarrow p\notin H \implies G\cap H = \emptyset$
+\begin{example}
+    \begin{align*}
+        G\ &: x = \begin{pmatrix}
+            1\\ 1\\ 2
+        \end{pmatrix} + \lambda \begin{pmatrix}
+            2\\ 0\\ -1
+        \end{pmatrix} = p + \lambda n\\
+        H\ &: x_1 + 4x_2 = 1, \text{ also } a = \begin{pmatrix}
+            1 & 4 & 0
+        \end{pmatrix}, b = 1
+    \end{align*}
+    \underline{$G\cap H$}: $an = 2 \neq 0$
+    \begin{align*}
+        \implies x &= \begin{pmatrix}
+            1\\ 1\\ 2
+        \end{pmatrix} + \frac{1 - \begin{pmatrix} 1&4&0 \end{pmatrix}
+        \begin{pmatrix}1\\1\\2\end{pmatrix}}{2}\begin{pmatrix}
+            2\\0\\-1
+        \end{pmatrix} = \begin{pmatrix}
+            1\\1\\2
+        \end{pmatrix} + \frac{1 - 5}{2} \begin{pmatrix}
+            2\\0\\-1
+        \end{pmatrix}\\
+        x &=\begin{pmatrix}
+            1\\1\\2
+        \end{pmatrix} - 2 \begin{pmatrix}
+            2\\0\\-1
+        \end{pmatrix} = \begin{pmatrix}
+            -3\\1\\4
+        \end{pmatrix}\text{ \dots Schnitpunkt}
+    \end{align*}
+\end{example}
