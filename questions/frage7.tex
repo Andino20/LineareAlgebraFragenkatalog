@@ -1,0 +1,31 @@
+\section{Frage 7}
+\textit{Formulieren Sie genau die Definition einer Basis.}
+
+\begin{definition}[Basis]
+    Sei $V$ ein Vektorraum. Das $n$-Tupel ($x_1, \dots, x_n$) von Vektoren aus $V$ heißt
+    (geordnete) Basis von $V$, wenn gilt:
+    \begin{enumerate}
+        \item $x_1,\dots,x_n$ sind linear unabhängig
+        \item $\mathrm{lin}\{x_1,\dots,x_n\} = V$ (lineare Hülle)
+    \end{enumerate}
+\end{definition}
+\begin{definition}[linear abhängig]
+    Die Vektoren $x_1,\dots,x_n$ heißen \underline{linear} \underline{abhängig}, wenn es Skalare
+    $\lambda_1,\dots,\lambda_n\in \mathbb{K}$ gibt, die \textbf{nicht alle} $0$ sind, sodass
+    \[
+        0 = \lambda_1 x_1 + \dots + \lambda_n x_n.
+    \]
+    Also: $0$ lässt sich als nicht-triviale Linearkombination von $x_1,\dots,x_n$ dar\-stellen.
+
+    Die Vektoren heißen außerdem \underline{linear unabhängig}, wenn sie nicht linear abhängig
+    sind.
+\end{definition}
+\begin{definition}[lineare Hülle]
+    Die Menge aller Linearkombinationen von $x_1,\dots,x_n$
+    \[
+        \mathrm{lin}\{x_1,\dots,x_n\} := \{
+            x = \lambda_1 x_1 + \dots + \lambda_n x_n\ \mid\ \lambda_1,\dots,\lambda_n\in \mathbb{K}
+        \}
+    \]
+    heißt die lineare Hülle von $x_1,\dots,x_n$.
+\end{definition}

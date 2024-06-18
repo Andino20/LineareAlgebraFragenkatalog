@@ -1,4 +1,9 @@
 \documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{babel}[ngerman]
+
+\usepackage{hyphenat}
+\hyphenation{Mathe-matik wieder-gewinnen}
 
 \usepackage{amssymb, amsmath, amsthm}
 \usepackage{mdframed}
@@ -7,7 +12,7 @@
 \newmdtheoremenv{definition}{Definition}
 \newmdtheoremenv{theorem}{Satz}
 
-\theoremstyle{remark}
+\theoremstyle{plain}
 \newtheorem*{example}{Beispiel}
 
 \begin{document}
@@ -18,4 +23,6 @@
     \input{questions/frage5.tex}
     \pagebreak
     \input{questions/frage6.tex}
+    \pagebreak
+    \input{questions/frage7.tex}
 \end{document}
