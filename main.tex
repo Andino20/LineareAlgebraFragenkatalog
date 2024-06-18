@@ -1,6 +1,9 @@
 \documentclass{article}
 \usepackage[T1]{fontenc}
 \usepackage{babel}[ngerman]
+\usepackage{hyperref}
+
+\setcounter{secnumdepth}{0}
 
 \usepackage{hyphenat}
 \hyphenation{Mathe-matik wieder-gewinnen}
@@ -34,7 +37,13 @@ breakable,before skip=10pt,after skip=10pt }
 \theoremstyle{remark}
 \newtheorem*{corollary}{Korollar}
 
+\title{Fragenkatalog Ausarbeitung\\
+\large Lineare Algebra 2024}
+
 \begin{document}
+    \maketitle
+    \tableofcontents
+    \pagebreak
     \input{questions/frage3.tex}
     \pagebreak
     \input{questions/frage4.tex}

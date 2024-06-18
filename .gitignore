@@ -5,3 +5,6 @@
 *.synctex.gz
 *.pdf
 *.thm
+*.dvi
+*.out
+*.toc
