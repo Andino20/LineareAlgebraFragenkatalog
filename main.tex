@@ -6,14 +6,33 @@
 \hyphenation{Mathe-matik wieder-gewinnen}
 
 \usepackage{amssymb, amsmath, amsthm}
-\usepackage{mdframed}
+\usepackage{tcolorbox}
 \usepackage{nicefrac}
 
-\newmdtheoremenv{definition}{Definition}
-\newmdtheoremenv{theorem}{Satz}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems,skins,breakable}
 
-\theoremstyle{plain}
+\definecolor{royalazure}{rgb}{0.0, 0.22, 0.66}
+
+\tcolorboxenvironment{theorem}{
+enhanced jigsaw,colframe=royalazure,interior hidden,
+breakable,before skip=10pt,after skip=10pt }
+
+\tcolorboxenvironment{definition}{
+enhanced jigsaw,colframe=cyan,interior hidden,
+breakable,before skip=10pt,after skip=10pt }
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+
+\theoremstyle{definition}
+\newtheorem*{theorem}{Satz}
+
+\theoremstyle{remark}
 \newtheorem*{example}{Beispiel}
+
+\theoremstyle{remark}
+\newtheorem*{corollary}{Korollar}
 
 \begin{document}
     \input{questions/frage3.tex}
@@ -25,4 +44,10 @@
     \input{questions/frage6.tex}
     \pagebreak
     \input{questions/frage7.tex}
+    \pagebreak
+    \input{questions/frage8.tex}
+    \pagebreak
+    \input{questions/frage9.tex}
+    \pagebreak
+    \input{questions/frage10.tex}
 \end{document}

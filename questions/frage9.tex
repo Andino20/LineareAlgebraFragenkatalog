@@ -1,0 +1,63 @@
+\section{Frage 9}
+\begin{theorem}[Dimensionsformel für lineare Abbildungen]
+    Seien $V,W$ Vektorräume und $V$ endlich-dimensional. Sei $T:V\to W$
+    eine lineare Abbildung. Dann folgt
+    \[
+        \mathrm{dim} (\mathrm{ker}\ T) + \mathrm{dim}(\mathrm{im}\ T) = \mathrm{dim}\ V
+    .\]
+\end{theorem}
+\begin{proof}
+    Sei $V$ endlich-dimensional mit $\mathrm{dim}\ V=n$, dann ist $\mathrm{ker}\ T$ ein 
+    Teilraum von $V$, wodurch auch $\mathrm{ker}\ T$ endlich-dimensional ist. Sei
+    weiters $v_1,\dots,v_k$ eine Basis von $\mathrm{ker}\ T$.
+    Nach dem Basisergänzungssatz kann diese zu einer Basis $v_1,\dots,v_k,v_{k+1},\dots,v_n$
+    von $V$ ergänzt werden.\\
+    \textit{Behauptung}: $T(v_{k+1}),\dots,T(v_n)$ ist eine Basis von $\mathrm{im}\ T$.\\
+    \begin{enumerate}
+        \item[(1)] $\mathrm{lin}\{T(v_{k+1},\dots,T(v_{n}))\} = \mathrm{im}\ T$\\
+        Sei $x\in V$. Da $v_1,\dots,v_n$ eine Basis von $V$ ist, gibt es 
+        eindeutig bestimmte $\lambda_1,\dots,\lambda_n\in \mathbb{K}$, sodass
+        \[
+            x = \lambda_1v_1 + \dots + \lambda_n v_n    
+        \]
+        \begin{align*}
+            \implies T(x) &= T(\lambda_1v_1 + \dots + \lambda_n v_n)\\
+            &= \lambda_1 \underbrace{T(v_1)}_{=0} + \dots 
+            + \lambda_k \underbrace{T(v_k)}_{=0} +
+            \lambda_{k+1} T(v_{k+1}) + \dots +
+            \lambda_n T(v_n)\\
+            &=\lambda_{k+1} T(v_{k+1}) + \dots + \lambda_n T(v_n) 
+            \in \mathrm{lin}\{T(v_{k+1},\dots,T(v_n))\}\\
+            \implies \mathrm{im}\ T &\subseteq \mathrm{lin}\{
+                T(v_{k+1},\dots,T(v_n))
+            \}\\
+            &\text{Klarerweise ist auch } \mathrm{lin}\{T(v_{k+1},\dots,T(v_n))\}\subseteq \mathrm{im}\ T\\
+            \implies \mathrm{im}\ T &= \mathrm{lin}\{T(v_{k+1},\dots,T(v_n))\}
+        \end{align*}
+        \item[(2)] $T(v_{k+1},\dots,T(v_n))$ linear unabhängig:\\
+        Sei $\lambda_{k+1}T(v_{k+1}) + \dots + \lambda_n T(v_n) = 0$
+        \begin{align*}
+            \implies &T(\lambda_{k+1}v_{k+1}+\dots +\lambda_nv_n) = 0\\
+            \implies &\lambda_{k+1}v_{k+1} + \dots + \lambda_n v_n \in \mathrm{ker}\ T
+        \end{align*}
+        Da $v_1,\dots,v_k$ eine Basis von $\mathrm{ker}\ $T ist, gibt es 
+        $\lambda_1,\dots,\lambda_n\in \mathbb{K}$ mit\\
+        $\lambda_{k+1}v_{k+1} + \dots + \lambda_nv_n = \lambda_1 v_1 + \dots + \lambda_k v_k$.
+        \[
+            \implies \lambda_1v_1 + \dots + \lambda_kv_k - \lambda_{k+1}v_{k+1} - \dots - \lambda_n v_n = 0    
+        .\]
+        Da $v_1,\dots,v_n$ linear unabhängig sind, folgt
+        \[
+            \lambda_1 = \dots = \lambda_k = \lambda_{k+1} = \dots = \lambda_n = 0   
+        .\]
+        Also speziell $\lambda_{k+1} = \dots = \lambda_n > 0$ \textbf{Notiz: Das macht keinen Sinn, steht
+        aber so in den Folien???}
+        \[
+            \implies T(v_{k+1}),\dots,T(v_n)\ \text{sind l.u.}
+        \]
+        \item[(3)] $T(v_{k+1}),\dots,T(v_n)$ ist eine Basis von $\mathrm{im}\ T$
+        \[
+            \implies \mathrm{dim}(\mathrm{im}\ T) = n-k = \mathrm{dim}\ V - \mathrm{dim}(\mathrm{ker}\ T)    
+        .\]
+    \end{enumerate} 
+\end{proof}

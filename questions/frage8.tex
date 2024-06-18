@@ -1,0 +1,47 @@
+\section{Frage 8}
+\textit{Formulieren Sie die wichtigsten Sätze zur Basis.}
+
+\begin{theorem}
+    ($x_1,\dots,x_n$) ist eine Basis von $V$ $\Longleftrightarrow$ 
+    $\forall x \in V$ gibt es \underline{eindeutig} bestimmte 
+    $\lambda_1,\dots,\lambda_n\in\mathbb{K}$ mit 
+    \[
+        x = \lambda_1 x_1 + \dots + \lambda_n x_n    
+    .\]
+\end{theorem}
+\begin{theorem}[Invarianz der Basislänge]
+    Besitzt ein Vektorraum $V$ eine Basis, dann haben alle Basen von $V$
+    gleichviele Elemente.
+\end{theorem}
+\begin{theorem}[Basisauswahlsatz]
+    Sei $V$ endlich erzeugt, also $V=\mathrm{lin}\{v_1,\dots,v_n\}$.
+    Dann erhält man durch Weglassen geeigneter Elemente von 
+    $\{v_1,\dots,v_n\}$ eine Basis von $V$.
+\end{theorem}
+\begin{theorem}[Basisergänzungssatz]
+    Sei $V$ endlich erzeugt und seien $v_1,\dots,v_k$ linear unabhängige
+    Vektoren von $V$.\\
+    Dann lassen sich $v_1,\dots,v_k$ zu einer Basis ergänzen, d.h. es gibt\\ 
+    $v_{k+1},\dots,v_{k+e}\ (e\geq 0)$, sodass $v_1,\dots,v_k,v_{k+1},\dots,v_{k+e}$
+    eine Basis von $V$ bildet.
+\end{theorem}
+\begin{corollary}
+    Jeder endlich erzeugte Vektorraum $V$ besitzt eine Basis.
+\end{corollary}
+\begin{corollary}
+    Sei $V$ ein Vektorraum und $\mathrm{dim}\ V=k$. Seien weiters $v_1,\dots,v_k\in V$.
+    Dann sind folgende Aussagen \underline{äquivalent}:
+    \begin{enumerate}
+        \item ($v_1,\dots,v_k$) ist eine Basis von $V$,
+        \item $\mathrm{lin}\{v_1,\dots,v_k\} = V$,
+        \item $v_1,\dots,v_k$ sind linear unabhängig.
+    \end{enumerate}
+\end{corollary}
+\begin{corollary}
+    Sei $V$ ein Vektorraum mit $\mathrm{dim}\ V=k$. Sei weiters $U$ ein Teilraum
+    von $V$. Dann sind folgende Aussagen äquivalent:
+    \begin{enumerate}
+        \item $U=V$
+        \item $\mathrm{dim}\ U=\mathrm{dim}\ V$
+    \end{enumerate}
+\end{corollary}
