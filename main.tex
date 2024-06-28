@@ -1,7 +1,13 @@
 \documentclass{article}
 \usepackage[T1]{fontenc}
 \usepackage{babel}[ngerman]
+\usepackage{geometry}
 \usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{array}
+\usepackage{systeme}
+
+\usepackage{multirow, multicol}
 
 \setcounter{secnumdepth}{0}
 
@@ -14,6 +20,8 @@
 
 \usepackage{tcolorbox}
 \tcbuselibrary{theorems,skins,breakable}
+
+\input{latex_code/gauss_elimination.tex}
 
 \definecolor{royalazure}{rgb}{0.0, 0.22, 0.66}
 
@@ -59,4 +67,10 @@ breakable,before skip=10pt,after skip=10pt }
     \input{questions/frage9.tex}
     \pagebreak
     \input{questions/frage10.tex}
+    \pagebreak
+    \input{questions/frage11.tex}
+    \pagebreak
+    \input{questions/frage12.tex}
+    \pagebreak
+    \input{questions/frage13.tex}
 \end{document}

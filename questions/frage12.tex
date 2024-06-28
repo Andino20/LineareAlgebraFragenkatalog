@@ -1,0 +1,147 @@
+\section{Frage 12}
+\textit{Die inverse Matrix: Definition, Berechnung der inversen Matrix und Beispiele.}
+\begin{definition}[invertierbare Matrix]
+    Eine $n\times n$-Matrix heißt \underline{invertierbar}, wenn
+    \begin{align*}
+        f_A\ :\ &\mathbb{R}^n \to \mathbb{R}^n\\
+        & f_A(x) = Ax
+    \end{align*}
+    bijektiv ist.
+\end{definition}
+\begin{corollary}
+    $A\in M(n\times n)$ ist invertierbar genau dann, wenn $\text{rg}(A)=n$.
+\end{corollary}
+\begin{definition}[Inverse Matrix]
+    Sei $A$ eine $n\times n$-Matrix, dann heißt $A^{-1}$ die dazu inverse Matrix, wenn
+    \[
+        A^{-1}\cdot A = E
+    \]
+    gilt.
+\end{definition}
+\subsection*{Berechnung der inversen Matrix}
+Suche die Spaltenvektoren $a_1,\dots,a_n$ von $A^{-1} = \begin{pmatrix}
+    a_1 & \dots & a_n
+\end{pmatrix}$. Da $AA^{-1}= E$ folgt $\forall i=1,\dots,n$
+\[
+    Aa_i=e_i
+.\]
+Da $\text{rg}(A) = n$, ist $Ax = e_i$ eindeutig lösbar $\forall i = 1,\dots, n$. Weiters ist $a_i$ die eindeutige
+Lösung von 
+\[
+    Ax = e_i\qquad\forall i=1,\dots n.
+\]
+Dadurch entstehen $n$ Gleichungssysteme, die simultan gelöst werden können, indem man die Vektoren $e_1, \dots, e_n$
+nebeneinander hinter die Matrix $A$ schreibt und dann den Gauß-Algorithmus anwendet.
+\begin{multline*}    
+    \left(
+        \begin{array}{c | c c c c}
+            A & e_1 & e_2 & \dots & e_n
+        \end{array}
+    \right) = \left(\begin{array}{c | c c c}
+        \multirow{4}{*}{\Huge$A$} & 1 & & 0\\
+        & & \ddots &\\
+        & 0 & & 1
+    \end{array}\right) \xrightarrow[]{\text{Gauß}}
+    \left(
+        \begin{array}{c c c | c c c}
+            1 & & 0 & \multirow{3}{*}{$a_1$} & \multirow{3}{*}{$\dots$} & \multirow{3}{*}{$a_n$}\\
+              & \ddots &\\
+            0 & & 1
+        \end{array}
+    \right)\\
+    =\left(
+        \begin{array}{ccc|r}
+            1 & & 0 & \multirow{4}{*}{\Huge$A^{-1}$}\\
+              & \ddots &\\
+            0 & & 1 &
+        \end{array}
+    \right)
+\end{multline*}
+\begin{example}
+    Sei $A$ eine $4\times 4$-Matrix mit
+    \[
+        A = \begin{pmatrix}
+            1 & 0 & 1 & 1\\
+            1 & 1 & 2 & 1\\
+            0 & -1 & 0 & 1\\
+            1 & 0 & 0 & 2
+        \end{pmatrix}
+    \]
+    
+    \begin{elimination}[4]{4}{0.8em}{1.1}
+        \eliminationstep
+        {
+            1 & 0 & 1 & 1 & 1 & 0 & 0 & 0\\
+            1 & 1 & 2 & 1 & 0 & 1 & 0 & 0\\
+            0 & -1 & 0 & 1 & 0 & 0 & 1 & 0\\
+            1 & 0 & 0 & 2 & 0 & 0 & 0 & 1
+        }
+        {
+            \text{II} - \text{I} \to \text{II}\\
+            \text{IV} - \text{I} \to \text{IV}
+        }
+        \eliminationstep
+        {
+            1 & 0 & 1 & 1 & 1 & 0 & 0 & 0\\
+            0 & 1 & 1 & 0 & -1 & 1 & 0 & 0\\
+            0 & -1 & 0 & 1 & 0 & 0 & 1 & 0\\
+            0 & 0 & -1 & -1 & -1 & 0 & 0 & 1
+        }
+        {
+            \text{II} + \text{III} \to \text{III}
+        }
+        \\[10pt]
+        \eliminationstep
+        {
+            1 & 0 & 1 & 1 & 1 & 0 & 0 & 0\\
+            0 & 1 & 1 & 0 & -1 & 1 & 0 & 0\\
+            0 & 0 & 1 & 1 & -1 & 1 & 1 & 0\\
+            0 & 0 & -1 & 1 & -1 & 0 & 0 & 1
+        }
+        {
+            \text{III} + \text{IV} \to \text{IV}
+        }
+        \eliminationstep
+        {
+            1 & 0 & 1 & 1 & 1 & 0 & 0 & 0\\
+            0 & 1 & 1 & 0 & -1 & 1 & 0 & 0\\
+            0 & 0 & 1 & 1 & -1 & 1 & 1 & 0\\
+            0 & 0 & 0 & 2 & -2 & 1 & 1 & 0
+        }
+        {
+            \text{I} - \text{III} \to \text{I}\\
+            \text{II} - \text{III} \to \text{II}\\
+            \nicefrac{1}{2}\cdot \text{IV}
+        }
+        \\[10pt]
+        \eliminationstep
+        {
+            1 & 0 & 0 & 0 & 2 & -1 & -1 & 0\\
+            0 & 1 & 0 & -1 & 0 & 0 & -1 & 0\\
+            0 & 0 & 1 & 1 & -1 & 1 & 1 & 0\\
+            0 & 0 & 0 & 1 & -1 & \frac{1}{2} & \frac{1}{2} & \frac{1}{2}
+        }
+        {
+            \text{II} + \text{IV} \to \text{II}\\
+            \text{III} - \text{IV} \to \text{III}
+        }
+        \eliminationstep
+        {
+            1 & 0 & 0 & 0 & 2 & -1 & -1 & 0\\
+            0 & 1 & 0 & 0 & -1 & \frac{1}{2} & -\frac{1}{2} & \frac{1}{2}\\
+            0 & 0 & 1 & 0 & 0 & \frac{1}{2} & \frac{1}{2} & -\frac{1}{2}\\
+            0 & 0 & 0 & 1 & -1 & \frac{1}{2} & \frac{1}{2} & \frac{1}{2}
+        }
+        {
+            \\
+        }
+    \end{elimination}
+    \[
+        \implies A^{-1} = \begin{pmatrix}
+            2 & -1 & 1 & 0\\
+            -1 & \nicefrac{1}{2} & -\nicefrac{1}{2} & \nicefrac{1}{2}\\
+            0 & \nicefrac{1}{2} & \nicefrac{1}{2} & -\nicefrac{1}{2}\\
+            -1 & \nicefrac{1}{2} & \nicefrac{1}{2} & \nicefrac{1}{2}
+        \end{pmatrix}
+    \]
+\end{example}

@@ -1,0 +1,28 @@
+\section{Frage 13}
+\textit{Die Ungleichung von Cauchy-Schwarz: Formulierung und Beweis.}
+\begin{theorem}[Ungleichung Cauchy-Schwarz]
+    Sei $V$ ein euklidischer Vektorraum. Dann gilt $\forall~x,y\in~V$
+    \[
+    |\langle x,y \rangle|\leq \sqrt{\langle x,x\rangle}\cdot\sqrt{\langle y,y\rangle}\]
+\end{theorem}
+\begin{proof} Cauchy-Schwarz Ungleichung\\
+    Fall 1: Sei $\langle y,y\rangle = 0$.
+    \begin{align*}
+        &\implies y = 0\\
+        &\implies \langle x,0\rangle = \langle x, 0\cdot 0\rangle = 0\cdot \langle x, 0\rangle = 0\\
+        &\implies 0 \leq 0 \implies \text{Cauchy-Schwarz Ungleichung}
+    \end{align*}
+    Fall 2: Sei etwa $\langle y,y\rangle\neq 0$ (sonst $x$ und $y$ tauschen). Sei $z$ ein weitere Vektor, 
+    der wie folgt definiert ist.
+    \[
+    z := x - \frac{\langle x, y\rangle}{\langle y,y\rangle}\cdot y\]
+    \begin{align*}
+        \implies 0 &\leq \langle z, z\rangle = \left\langle x - \frac{\langle x, y\rangle}{\langle y,y\rangle}\cdot y, x - \frac{\langle x, y\rangle}{\langle y,y\rangle}\cdot y \right\rangle\\
+        &= \langle x,x\rangle - \frac{\langle x, y\rangle}{\langle y,y\rangle}\langle y,x\rangle - \frac{\overline{\langle x,y\rangle}}{\langle y, y\rangle}\langle x,y\rangle + \frac{\langle x,y\rangle}{\langle y,y\rangle}\frac{\overline{\langle x,y\rangle}}{\langle y,y\rangle}\langle y,y\rangle\\
+        &= \langle x,x\rangle - \frac{\langle x,y\rangle \overline{\langle x,y\rangle}}{\langle y,y\rangle} - \frac{\overline{\langle x,y\rangle}\langle x,y\rangle}{\langle y,y \rangle} + \frac{\langle x,y\rangle \overline{\langle x,y\rangle}}{\langle y,y\rangle}\\
+        &= \langle x,x\rangle - \frac{\langle x,y\rangle \overline{\langle x,y\rangle}}{\langle y,y\rangle} = \langle x,x\rangle - \frac{|\langle x,y\rangle|^2}{\langle y,y\rangle}\\
+        \Longleftrightarrow 0 &\leq \langle x,x\rangle - \frac{|\langle x,y\rangle|^2}{\langle y,y\rangle}\qquad\mid\cdot \langle y,y\rangle, +|\langle x,y\rangle|^2\\
+        \Longleftrightarrow |\langle x,y\rangle|^2 &\leq \langle x, x\rangle\langle y,y\rangle\qquad\mid\sqrt[]{\ }\\
+        \Longleftrightarrow \langle x,y\rangle &\leq \sqrt{\langle x, x\rangle}\cdot \sqrt{\langle y,y\rangle}
+    \end{align*}
+\end{proof}
