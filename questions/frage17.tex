@@ -1,0 +1,55 @@
+\section{Frage 17}
+\textit{Abstand Punkt - affiner Teilraum: Beispiele. (Siehe Formeln Dokumentende)}
+\begin{example}
+    Sei $G$ eine Gerade im $\mathbb{R}^3, G= p + U$ und sei $x$ ein Punkt im $\mathbb{R}^3$.
+    \begin{align*}
+        G &: x = p + \lambda u = \begin{pmatrix}
+            1\\1\\1
+        \end{pmatrix} + \lambda \begin{pmatrix}
+            2\\0\\-1
+        \end{pmatrix}\\
+        x &:= \begin{pmatrix}
+            1\\2\\3
+        \end{pmatrix}
+    \end{align*}
+    Wir bestimmen den Basisvektor $v$ von $G$ und berechnen die Distanz $d(x,G)$.
+    \begin{align*}
+        v &= \frac{1}{\norm{u}}u = \frac{1}{\sqrt{5}}\begin{pmatrix}
+            2\\0\\-1
+        \end{pmatrix} \implies U = \mathrm{lin}\{v\}\\
+        \implies d(x,G) &= \norm{x-p-\pi_U(x-p)}\\
+        &= \norm{x -p - \inner{x-p}{v}v}\\
+        &= \norm{\begin{pmatrix}
+            0\\1\\2
+        \end{pmatrix}+\frac{2}{5}\begin{pmatrix}
+            2\\0\\-1
+        \end{pmatrix}} = \frac{1}{5}\norm{\begin{pmatrix}
+            0\\5\\10
+        \end{pmatrix} - \begin{pmatrix}
+            4\\0\\-2
+        \end{pmatrix}} = \frac{1}{5}\begin{pmatrix}
+            -4\\5\\12
+        \end{pmatrix}\\
+        &= \frac{1}{5}\sqrt{16 + 25 + 144} = \underline{\underline{\frac{1}{5}\sqrt{185}}}
+    \end{align*}
+\end{example}
+\begin{example}
+    Sei $H$ eine Hyperebene im $\mathbb{R}^3$ gegeben durch
+    \[
+        H:x_1 + 2x_2 - x_3 = 4 \implies a = \begin{pmatrix}
+            1\\2\\-1
+        \end{pmatrix}
+    \]
+    Sei $x = \begin{pmatrix}
+        1\\2\\3
+    \end{pmatrix}$.
+    \begin{align*}
+        d(x,H) &= \frac{\left\vert \inner{\begin{pmatrix}
+            1\\2\\-1
+        \end{pmatrix}}{\begin{pmatrix}
+            1\\2\\3
+        \end{pmatrix}} -4\right\vert}{\sqrt{6}}\\
+        &= \frac{\vert 2 - 4\vert}{\sqrt{6}} = \frac{2}{\sqrt{6}} = \frac{2\sqrt{6}}{6} = \frac{\sqrt{6}}{3}\\
+        d(x,H) &= \frac{\sqrt{6}}{3}
+    \end{align*}
+\end{example}

@@ -1,0 +1,61 @@
+\section{Frage 16}
+\textit{Das Orthonormalisierungsverfahren von Gram-Schmidt: Formulierung und Beweis.}
+\begin{theorem}[Orthonormalisierungsverfahren Gram-Schmidt]
+    Sei $V$ ein euklidischer Vektorraum und seien $w_1,\dots, w_k\in V$ linear unabhängige Vektoren.
+    Dann existiert ein Orthonormalsystem $\{v_1,\dots,v_k\}$ mit
+    \[
+        \mathrm{lin}\{v_1,\dots,v_k\} = \mathrm{lin}\{w_1,\dots,w_k\}
+    \]
+\end{theorem}
+\begin{proof}Orthonormalisierungsverfahren Gram-Schmidt\\
+    Wir konstruieren $v_1,\dots,v_k$ rekursiv wie folgt:
+    \begin{enumerate}
+        \item[(1)] Setze $v_1 := \displaystyle \frac{1}{\norm{w_1}} w_1$.
+        \[
+            \implies \norm{v_1} = \frac{1}{\norm{w_1}}\norm{w_1} = 1
+        \]
+        \item[(2)] Sind $v_1,\dots,v_k$ für $l < k$ schon bestimmt, so setze
+        \[
+            \tilde{v}_{l+1} := w_{l+1} - \sum_{i = 1}^{l}\inner{w_{l+1}}{v_i}v_i
+        \]
+        Wir zeigen: $\inner{\tilde{v}_{l+1}}{v_j}=0\quad\forall j = 1,\dots,l$
+        \begin{align*}
+            \inner{\tilde{v}_{l+1}}{v_j} &= \inner{w_{l+1} - \sum_{i=1}^{l}\inner{w_{l+1}}{v_i}v_i}{v_j}\\
+            &=  \inner{w_{l+1}}{v_j} - \sum_{i=1}^{l}\inner{w_{l+1}}{v_i}\inner{v_i}{v_j}
+        \end{align*}
+        Für $\inner{v_i}{v_j}$ gilt
+        \[
+            \inner{v_i}{v_j} = \begin{cases}
+                0 & i\neq j\\
+                1 & i = j
+            \end{cases}\qquad \text{da }\{v_1,\dots,v_k\} \text{ ONS}.
+        \]
+        \[
+            \implies \inner{\tilde{v}_{l+1}}{v_j} = \inner{w_{l+1}}{v_j} - \inner{w_{l+1}}{v_j} = 0
+        \]
+        Da $w_1,\dots,w_l,w_{l+1}$ linear unabhängig sind, folgt
+        \[
+            w_{l+1}\notin \mathrm{lin}\{w_1,\dots,w_l\}.
+        \]
+        Da nach Induktionshypothese
+        \[
+        \mathrm{lin}\{v_1,\dots,v_k\} = \mathrm{lin}\{w_1,\dots,w_k\}
+        \]
+        folgt auch $w_{l+1} \notin \mathrm{lin}\{v_1,\dots,v_l\}$.
+        \[
+            \implies \tilde{v}_{l+1} = w_{l+1} - \sum_{i=1}^{l}\inner{w_{l+1}}{v_i}v_i\neq 0
+        \]
+        Setze $v_{l+1} := \displaystyle \frac{1}{\norm{\tilde{v}_{l+1}}}\tilde{v}_{l+1}$
+        \begin{align*}
+            \implies &\norm{v_{l+1}} = 1\\
+            \implies &\{v_1,\dots,v_{l+1}\} ist ein ONS.
+        \end{align*}
+        Da $\mathrm{dim}(\mathrm{lin}\{w_1,\dots,w_{l+1}\}) = l+1$ und $v_1,\dots,v_{l+1}\in\mathrm{lin}\{w_1,\dots,w_{l+1}\}$
+        nach Konstruktion und $v_1,\dots,v_{l+1}$ linear unabhängig, folgt:
+
+        $\{v_1,\dots,v_{l+1}\}$ ist ONB von $\mathrm{lin}\{w_1,\dots,w_{l+1}\}$. Speziell folgt $\mathrm{lin}\{v_1,\dots,v_{l+1}\} = \mathrm{lin}\{w_1,\dots,w_{l+1}\}$
+        \[
+            \implies \{v_1,\dots,v_k\} \text{ ist ONS und } \mathrm{lin}\{v_1,\dots,v_k\} = \mathrm{lin}\{w_1,\dots,w_k\}
+        \]
+    \end{enumerate}
+\end{proof}
