@@ -1,0 +1,25 @@
+\section{Frage 14}
+\textit{Die Dreiecksungleichung für die Norm in einem euklidischen Vektorraum: 
+Formulierung und Beweis.}
+
+\begin{definition}[Dreiecksungleichung der Norm]
+    Sei $\norm{\ .\ } : V \to \mathbb{R}$ eine Norm, dann gilt per dessen Definition
+    \[
+        \norm{x + y} \leq \norm{x} + \norm{y}\qquad\forall x,y\in V
+    .\]
+\end{definition}
+\begin{proof} Dreiecksungleichung der Norm\\
+    Sei $z = a+ib=\textrm{Re}(z) + \textrm{Im}(z)\in \mathbb{C} \implies \vert\mathrm{Re}(z)\vert \leq \vert z\vert$
+    \begin{align*}
+        \implies \norm{x+y}^2 &= \inner{x+y}{x+y}\\
+        &= \inner{x}{x} + \inner{x}{y} + \inner{y}{x} + \inner{y}{y}\\
+        &= \norm{x}^2 + \underbrace{\inner{x}{y} + \overline{\inner{x}{y}}}_{\text{Re}(z) = (z + \overline{z}) / 2} + \norm{y}^2\\
+        &= \norm{x}^2 + 2\textrm{Re}(\inner{x}{y}) + \norm{y}^2\\
+        &\leq \norm{x}^2 + 2\vert \textrm{Re}(\inner{x}{y}) \vert + \norm{y}^2\\
+        &\leq \norm{x}^2 + 2\vert \inner{x}{y}\vert + \norm{y}^2\\
+        \text{Cauchy-Schwarz} &\leq \norm{x}^2 + 2 \sqrt{\inner{x}{x}}\sqrt{\inner{y}{y}} + \norm{y}^2\\
+        &=\norm{x}^2 + 2 \norm{x}\norm{y} + \norm{y}^2\\
+        &= (\norm{x} + \norm{y})^2\\
+        \implies \norm{x + y} &\leq \norm{x} + \norm{y}\qquad\forall x,y\in V
+    \end{align*}
+\end{proof}
