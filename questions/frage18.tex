@@ -1,0 +1,115 @@
+\section{Frage 18}
+\textit{Die Determinante: Definition. Formulieren Sie die wichtigsten Eigenschaften der Determinante.}
+
+\begin{definition}[Determinante]
+    Sei $A=(a_{ij})\in M(n\times n)$. Wir definieren die Determinanten von 
+    $A$ (kurz: det($A$)), folgendermaßen induktiv:\\
+    \underline{n=1}: $\mathrm{det}(a) := a$.\\
+    \underline{n>1}: Entwicklung nach der $j$-ten Spalte.
+
+    Sei $j$ mit $1\leq j \leq n$ eine beliebige, aber fixe Zahl.
+    \[
+    \mathrm{det}(A):= \sum_{i=1}^{n}(-1)^{i+j}\cdot a_{ij} \cdot \mathrm{det}(A_{ij})\]
+\end{definition}
+
+\begin{theorem}
+    Die Abbildung
+    \begin{align*}
+        \mathrm{det}: &\ M(n\times n)\to \mathbb{R}\\
+        &\ A\mapsto \mathrm{det}(A)
+    \end{align*}
+    ist eine eindeutig bestimmte Abbildung, die folgende Eigenschaften erfüllt:
+    \begin{enumerate}
+        \item $\mathrm{det}$ ist linear in jeder Zeile, d.h. sei $a_i=(a_{i1},\dots,a_{in})$ die $i$-te Zeile
+        von $A$. Dann gilt
+        \[
+            \mathrm{det}\begin{pmatrix}
+                \vdots\\
+                \lambda a_i' + \mu a_i''\\
+                \vdots
+            \end{pmatrix} = \lambda\det \begin{pmatrix}
+                \vdots\\a_i'\\\vdots
+            \end{pmatrix} + \mu\det \begin{pmatrix}
+                \vdots\\a_i''\\\vdots
+            \end{pmatrix}\qquad (\lambda, \mu\in\mathbb{R})
+        \]
+        \item Ist $\mathrm{rg}(A) < n\implies\det A  = 0$.
+        \item $\det E  = 1$, wobei $E$ die Einheitsmatrix ist.
+    \end{enumerate}
+\end{theorem}
+\begin{definition}[Elementare Zeilenumformungen]
+    \[
+        A \leadsto A'
+    \]
+    \begin{enumerate}
+        \item[(I)] Vertauschen von 2 Zeilen:
+        \[
+            \det A' = -\det A
+        \]
+        \item[(II)] Multiplikation mit $\lambda\neq 0$:
+        \[
+            \det A'=\lambda\cdot \det A
+        \]
+        \item[(III)] Addition eines Vielfachen einer Zeile zu einer anderen:
+        \[
+            \det A' = \det A
+        \]
+    \end{enumerate}
+\end{definition}
+\begin{definition}[Determinante der transponierten Matrix]
+    Sei $A=(a_{ij})\in M(n\times n)$
+    \[
+        A^T := (a_{ij}^T)\text{ mit } a_{ij}^T:= a_{ji}
+    \]
+    heißt die zu $A$ transponierte Matrix.
+
+    Man erhält $A^T$ aus $A$, indem man die Elemente von $A$ an der Hauptdiagonale spiegelt. Dann gilt folgende
+    Eigenschaft:
+    \[
+        \det(A) = \det (A^T)
+    \]
+\end{definition}
+\begin{definition}
+    [Multiplikationssatz] Seien $A,B\in M(n\times n)$. Dann gilt:
+    \[
+        \det(AB)=(\det A)(\det B)
+    \]
+\end{definition}
+\begin{definition}
+    Sei $A\in M(n\times n)$
+    \[
+        A \text{ ist invertierbar }\Longleftrightarrow \det A \neq 0
+    \]
+\end{definition}
+\begin{definition}
+    Sei $A$ eine obere Dreiecksmatrix, d.h.
+    \[
+    A=\begin{pmatrix}
+        a_{11} & & *\\
+         & \ddots\\
+        0 & & a_{nn}
+    \end{pmatrix}
+    .\]
+    Dann gilt
+    \[
+        \det A = a_{11}\cdot a_{22}\cdots a_{nn}
+    \]
+\end{definition}
+\begin{definition}
+    [Berechnungsverfahren für die Determinante] Verwandle $A$ durch elementare Umforungen in eine obere
+    Dreiecksmatrix $A'$. Dies ist sicher möglich, denn sonst wäre $\mathrm{rg}\ A < n$ und damit $\det A = 0$.
+
+    Sei $r$ die Anzahl der Zeilenumformungen
+    \[
+        \implies \det A = (-1)^r\det A'= (-1)^r a_{11}'\cdots a_{nn}'
+    \]
+\end{definition}
+\begin{theorem}
+    Sei $A\in M(n\times n), b\in \mathbb{R}^n$. Dann ist das $n\times n$-Gleichungssystem
+    \[
+        Ax = b
+    \] genau dann \underline{eindeutig} lösbar, wenn
+    \[
+        \det A \neq 0.
+    \]
+\end{theorem}

@@ -1,0 +1,55 @@
+\section{Frage 20}
+\textit{Eine lineare Abbildung auf einem endlichdimensionalem komplexen Vektorraum hat mindestens einen Eigenwert:
+Beschreiben Sie die wichtigsten Schritte im Beweis des Satzes.}
+\begin{theorem}
+    Sei $V$ ein endlichdimensionaler Vektorraum \underline{über $\mathbb{C}$} und $T:V\to V$ linear. Dann hat
+    $T$ mindestens einen Eigenwert $\lambda\in\mathbb{C}$.
+\end{theorem}
+\begin{proof}
+    Sei $B=\{v_1,\dots,v_n\}$ eine Basis von $V$ und $A=(a_{ij})\in M(n\times n)$ die darstellende Matrix
+    von $T$ bezüglich $B$. Sei weiters 
+    \begin{align*}
+        I : V&\to v\\
+        x &\mapsto x
+    \end{align*}
+    die identische Abbildung.\\
+    \rule{\textwidth}{0.2px}\\
+    \underline{Schritt 1}: Die Determinante des charakteristischen Polynoms herleiten.
+    \begin{align*}
+        \lambda\in \mathbb{C} \text{ Eigenwert } &\biimplies \exists x\neq 0 : T(x)=\lambda x\\
+        &\biimplies T(x) - \lambda x = 0\\
+        &\biimplies (T-\lambda I) (x) = 0\\
+        &\biimplies x\in \mathrm{ker}(T-\lambda I) \land x\neq 0\\
+        &\biimplies\mathrm{ker}(T-\lambda I)\neq 0\\
+        &\biimplies\mathrm{dim}(\mathrm{ker}(T-\lambda I)) \geq 1 > 0\\
+        \text{(Einschub Dimensionsformel): } &\begin{cases}
+            \mathrm{dim}(\mathrm{ker}\ T) + \mathrm{dim}(\mathrm{im}\ T) = \mathrm{dim}\ V\\
+            \mathrm{dim}(\mathrm{im}\ T)=\mathrm{rg}\ A
+        \end{cases}\\
+        &\biimplies\mathrm{dim}(\mathrm{im}\ (T-\lambda I)) \leq n-1 < n\\
+        &\biimplies\mathrm{rg}(A-\lambda E) \leq n-1 < n\\
+        &\biimplies\det (A- \lambda E) = 0.\\
+        \underline{\lambda\in \mathbb{C} \text{ Eigenwert } }&\underline{\biimplies \det (A- \lambda E) = 0}
+    \end{align*}
+    \underline{Schritt 2}: Das charakteristische Polynom.
+    
+    Seien $A,B\in M(n\times n) \implies \exists c_0, c_1, \dots, c_n\in\mathbb{K}$, sodass
+    \begin{gather*}        
+        \det(A - \lambda B) = c_n \lambda^n + \dots + c_1 \lambda + c_0\\
+        \implies \det (A-\lambda E) = (-1)^n \lambda^n + a_{n-1}\lambda^{n-1} + \dots + a_1 \lambda + a_0
+    \end{gather*}
+    \underline{Schritt 3}: Über den Fundamentalsatz der Algebra eine Aussage über die Nullstellen des charakteristischen Polynoms treffen.
+
+    Jedes komplexe Polynom
+    \[
+        P(z) = c_nz^n + \dots + c_1z + c_0\qquad c_0,\dots,c_1\in\mathbb{C}
+    \]
+    von Grad $n\ (n \geq 1)$ hat mindestens eine Nullstelle, d.h. es gibt ein $z_0\in\mathbb{C}$ mit $P(z_0)=0$.\\
+    \underline{Schritt 4}: Das charakteristische Polynom ist ein komplexes Polynom vom Grad $n$. Somit gibt es nach
+    dem Fundamentalsatz der Algebra zumindest eine Nullstelle
+    \begin{align*}
+        \implies& \exists \lambda\in \mathbb{C} \text{ mit } \det(A-\lambda E) = 0\\
+        \biimplies& \lambda \text{ ist Eigenwert von } T
+    \end{align*}
+    Also hat $T$ zumindest einen Eigenwert.
+\end{proof}

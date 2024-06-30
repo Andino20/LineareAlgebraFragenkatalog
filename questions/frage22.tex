@@ -1,0 +1,93 @@
+\section{Frage 22}
+\textit{Der Spektralsatz für selbstadjungierte lineare Abbildungen: Formulierung und Beweis.}
+\begin{theorem}
+    Sei $V$ ein endlichdimensionaler \underline{reeller} euklidischer Vektorraum und $T:V \to V$ selbstadjungiert.
+    \[
+        \implies T \text{ besitzt einen reellen Eigenwert } \lambda\in\mathbb{R}
+    \]
+\end{theorem}
+\begin{definition}
+    [Invariant] Sei $T: V\to V$.\\
+    Ein Teilraum $M\subseteq V$ heißt invariant unter $T$, falls
+    \[
+        T(M)\subseteq M
+    \]
+\end{definition}
+\begin{lemma}
+    Sei $T:V\to V$ selbstadjungiert und $M\subseteq V$ invariant unter $T$, so ist auch sein orthogonales
+    Komplement $M^\bot$ invariant unter $T$.
+\end{lemma}
+\begin{theorem}
+    [Spektralsatz] Sei $V$ ein endlichdimensionaler euklidischer reeller Vektorraum und $T: V\to V$ eine
+    selbstadjungierte lineare Abbildung. Dann gilt:
+    \begin{enumerate}
+        \item Es gibt eine Orthonormalbasis von $V$ bestehend aus den Eigenvektoren von $T$, d.h. es gibt
+        $\lambda_1,\dots,\lambda_n\in\mathbb{R}$ und $v_1,\dots,v_n\in V$ (alle $\neq 0$) mit
+        \[
+            T(v_i)=\lambda_i v_i
+        \]
+        \item Ist $D$ die darstellende Matrix von $T$ bezüglich der Basis $\{v_1,\dots,v_n\}$, dann hat $D$ die
+        Diagonalgestalt
+        \[
+            D = \begin{pmatrix}
+                \lambda_1 & & & 0\\
+                          & \lambda_2 & & \\
+                          & & \ddots \\
+                          0 & & & \lambda_n
+            \end{pmatrix}
+        \]
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    (1.) Induktion nach der Dimension von $V$.\\
+    \underline{$n=1$}: $V=\{x\},\ x\neq 0,\ T: V\to V$.
+    \[
+        T(x)=\lambda x
+    \]
+    $v_1 = \displaystyle \frac{x}{\norm{x}}$ ist eine Orthonormalbasis von $V$.
+    \[
+    T(v_1) = T\left(\frac{x}{\norm{x}}\right) = \lambda \frac{x}{\norm{x}} = \lambda v_1\]
+    \underline{$n \to n+1$}: Sei $\mathrm{dim}\ V = n+1$.\\
+    Nach obigem Satz  gibt es ein $\lambda\in \mathbb{R},\ x\in V,\ x\neq 0$ mit
+    \[
+        T(x) = \lambda x
+    \]
+    Sei $v_1 = \displaystyle \frac{x}{\norm{x}}$ und $M=\mathrm{lin}\{x\}$.\\
+    Sei $y\in M\implies y = \mu x$
+    \[
+        \implies T(y) = T(\mu x) = \mu T(x) = \mu \lambda x \in M
+    \]
+    Das heißt $M=\mathrm{lin}\{x\}$ ist $T$-invariant.
+    \begin{align*}
+        \text{Lemma } &\implies M^\bot \text{ ist T-invariant}\\
+        &\implies n+1 = \mathrm{dim}\ V= \mathrm{dim}\ M + \mathrm{dim}\ M^\bot = 1 + \mathrm{dim}\ M^\bot\\
+        &\implies \mathrm{dim}\ M^\bot = n
+    \end{align*}
+    Da $T(M^\bot)\subseteq M^\bot$, können wir
+    \[
+        T:M^\bot \to M^\bot
+    \]
+    betrachten. $T:M^\bot \to M^\bot$ ist natürlich auch selbstadjungiert. Nach der Induktionshypothese gibt es 
+    eine Orthonormalbasis $v_2,\dots,v_{n+1}$ aus Eigenvektoren in $M^\bot$. Da $v_1\in M$ folgt weiters,
+    dass $\{v_1,v_2,\dots,v_{n+1}\}$ eine Orthonormalbasis von $V$, bestehend aus Eigenvektoren von $T$, ist.
+\end{proof}
+\begin{proof}
+    (2.) Sei $D$ die darstellende Matrix von $T$ bezüglich der Orthonormalbasis $\{v_1,\dots, v_n\}$. Da $T$
+    selbstadjungiert ist, ist $D$ symmetrisch und es gilt:
+    \begin{align*}
+        a_{ij} &= \inner{v_i}{T(v_j)} = \inner{T(v_i)}{v_j}\\
+        &= \inner{\lambda_i v_i}{v_j}= \lambda_i \inner{v_i}{v_j}\\
+        \inner{v_i}{v_j}&\begin{cases}
+            1 & i = j\\
+            0 & i\neq j
+        \end{cases}
+    \end{align*}
+    \[
+        \implies D = \begin{pmatrix}
+            \lambda_1 & & & 0\\
+                      & \lambda_2 & & \\
+                      & & \ddots \\
+                      0 & & & \lambda_n
+        \end{pmatrix}
+    \]
+\end{proof}

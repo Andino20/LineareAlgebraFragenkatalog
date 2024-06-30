@@ -1,0 +1,23 @@
+\section{Frage 21}
+\textit{Selbstadjungierte lineare Abbildungen und symmetrische Matrizen:
+Definition. Formulieren Sie die Beziehung zwischen diesen beiden Begriffen.}
+\begin{definition}
+    [Selbstadjungierte Abbildung] Sei $V$ ein reeller euklidischer Vektorraum. Eine lineare Abbildung
+    \[
+        T: V\to V
+    \] heißt \underline{selbstadjungiert}, wenn
+    \[
+    \inner{Tx}{y}=\inner{x}{Ty}\qquad \forall x,y\in V\]
+\end{definition}
+\begin{definition}
+    [symmetrische Matrix] Eine reelle $n\times n$-Matrix $A=(a_{ij})$ heißt \underline{symmetrisch}, wenn
+    \[
+    a_{ij}=a_{ji}\qquad\forall i,j=1,\dots,n
+    \]
+\end{definition}
+\begin{theorem}
+    Sei $V$ ein reeller euklidischer endlichdimensionaler Vektorraum, $T:V\to V$ linear und $\{v_1,\dots,v_n\}$
+    eine Orthonormalbasis von $V$. Dann gilt:
+
+    $T$ ist selbstadjungiert $\biimplies$ Die darstellende Matrix $A$ von $T$ ist symmetrisch.
+\end{theorem}
