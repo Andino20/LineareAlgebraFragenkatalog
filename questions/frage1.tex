@@ -1,0 +1,82 @@
+\section{Frage 1}
+\textit{Vektorraum: Genaue Definition und Beispiele von Vektorräumen.}
+\begin{definition}
+    Vektorraum\\
+    Sei $V$ eine nichtleere Menge mit zwei Abbildungen
+    \begin{align*}
+        +: &\ V \times V \to V &&\text{(Addition)}\\
+        & (x,y) \to x+y\\
+        \cdot :\ & \mathbb{K} \times V \to V &&\text{(Skalarmultiplikation)}\\
+        & (\lambda, x)\to \lambda x
+    \end{align*}
+    dann heißt $(V, +, \cdot)$ ein $\mathbb{K}$-Vektorraumm, wenn folgende Axiome gelten:
+    \begin{enumerate}
+        \item[(V1)] Abgeschlossenheit bzg. +
+        \[
+            x,y\in V \implies x + y\in V
+        \]
+        \item[(V2)] Assoziativität
+        \[
+            x + (y + z) = (x + y) + z\qquad \forall x,y,z\in V
+        \]
+        \item[(V3)] Neutrales Element\\
+        Es gibt ein Element $0\in V$ mit
+        \[
+            x + 0 = x\qquad \forall x\in V
+        \]
+        \item[(V4)] Inverses Element\\
+        Zu jedem $x\in V$ gibt es ein Element $(-x)\in V$ mit
+        \[
+            x + (-x) = 0
+        \]
+        \item[(V5)] Kommutativität
+        \[
+            x+y = y+x\qquad \forall x,y\in V
+        \]
+        \item[(V6)] Abgeschlossenheit bzg. $\cdot$
+        \[
+            x\in V, \lambda \in \mathbb{K}\implies \lambda x \in V
+        \]
+        \item[(V7)] $\forall x,y\in V, \forall \lambda \in \mathbb{K}$
+        \[
+            \lambda(x+y)= \lambda x + \lambda y
+        \]
+        \item[(V8)] $\forall x \in V, \forall \lambda, \mu \in \mathbb{K}$
+        \[
+            (\lambda + \mu)x = \lambda x + \mu x
+        \]
+        \item[(V9)] $\forall x \in V, \forall \lambda,\mu\in\mathbb{K}$
+        \[
+            \lambda(\mu\cdot x) = (\lambda\mu)\cdot x
+        \]
+        \item[(V10)] $\forall x\in V$
+        \[
+            1 \cdot x = x
+        \]
+    \end{enumerate}
+\end{definition}
+\begin{example}
+    Vektorräume
+    \begin{enumerate}
+        \item Der $\mathbb{R}^n$
+        \[
+            \mathbb{R}^n=
+            \left\{
+            x =
+            \begin{pmatrix}
+                x_1 \\ \vdots \\ x_n
+            \end{pmatrix} :
+            x_i\in\mathbb{R}, \forall i = 1, \dots, n
+            \right\}
+        \]
+        \item Sei $A$ eine nichtleere Menge.
+        \[
+            V := \{ f\ \mid\ f: A\to\mathbb{K} \text{ ist eine Funktion}\}
+        \]
+        Wir definieren $f+g$ und $\lambda f$ punktweise
+        \begin{gather*}
+            (f + g) (x) := f(x) + g(x)\\
+            (\lambda f)(x) := \lambda \cdot f(x)
+        \end{gather*}
+    \end{enumerate}
+\end{example}

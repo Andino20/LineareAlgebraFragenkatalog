@@ -1,0 +1,109 @@
+\section{Frage 2}
+\textit{Formulieren und beweisen Sie die Beziehung zwischen Matrizen und linearen Abbildungen}
+\begin{theorem}
+    Jede $m\times n$-Matrix $A$ entspricht in natürlicher Weise folgender Abbildungen
+    \begin{align*}
+        f_A : \mathbb{R}^n&\to \mathbb{R}^m\\
+        x &\mapsto Ax
+    \end{align*}
+\end{theorem}
+\begin{proof}
+    Sei $Ax\in\mathbb{R}^m$ nach der Definition der Matrix-Vektormultiplikation.
+    \begin{align*}
+        f_A(x+y) &= A(x+y) = Ax + Ay = f_A(x) + f_A(y)\\
+        f_A(\lambda x) &= A(\lambda x) = \lambda(Ax) = \lambda f_A(x)
+    \end{align*}
+\end{proof}
+\begin{theorem}
+    Zu jeder linearen Abbildung $T:\mathbb{R}^n\to \mathbb{R}^m$ gibt es eine \underline{eindeutig} 
+    bestimmte Matrix $A\in M(m\times n)$ mit
+    \[
+        T=f_A
+    \]
+\end{theorem}
+\begin{proof}
+    Eindeutigkeit\\
+    Seien $A,B \in M(m\times n)$ mit $T=f_A=f_B$. Dann ist zu zeigen, dass $A=B$. Anders ausgedrückt
+    \begin{align*}
+        T(x) &= f_A(x) = f_B(x)&\forall x\in \mathbb{R}^n\\
+        \implies T(x) &= Ax = Bx &\forall x\in \mathbb{R}^n
+    \end{align*}
+    Wir betrachten speziell die Einheitsvektoren
+    \[
+        e_1 = \begin{pmatrix}
+            1\\0\\\vdots\\ 0
+        \end{pmatrix}, e_2 = \begin{pmatrix}
+            0\\1\\\vdots\\0
+        \end{pmatrix},\dots, e_n = \begin{pmatrix}
+            0\\\vdots\\0\\1
+        \end{pmatrix}\in\mathbb{R}^n
+    \]
+    \begin{align*}
+        \implies &Ae_i = Be_i &\forall i = 1,\dots,n\\
+        &Ae_i = \begin{pmatrix}
+            a_{1i}\\a_{2i}\\\vdots\\a_{mi}
+        \end{pmatrix} = Be_i=\begin{pmatrix}
+            b_{1i}\\b_{2i}\\\vdots\\b_{mi}
+        \end{pmatrix} & \forall i = 1,\dots,n\\
+        \implies &a_{ki} = b_{ki}&\forall k=1,\dots,m\quad\forall i = 1,\dots,n\\
+        \implies & A= B
+    \end{align*}
+\end{proof}
+\begin{proof}
+    Existenz\\
+    Sei $T:\mathbb{R}^n\to \mathbb{R}^m$ linear. Wir setzen die Einheitsvektoren in die Abbildung $T$ ein.
+    \begin{align*}
+        Te_1 &= T \begin{pmatrix}
+            1\\0\\\vdots\\0
+        \end{pmatrix}=\begin{pmatrix}
+            a_{11}\\\vdots\\ a_{m1}
+        \end{pmatrix}\in\mathbb{R}^m\\
+        Te_2 &= T \begin{pmatrix}
+            0\\1\\\vdots\\0
+        \end{pmatrix}=\begin{pmatrix}
+            a_{12}\\\vdots\\ a_{m2}
+        \end{pmatrix}\in\mathbb{R}^m\\
+        &\vdots\\
+        Te_n &= T \begin{pmatrix}
+            0\\\vdots\\0\\1
+        \end{pmatrix}=\begin{pmatrix}
+            a_{1n}\\\vdots\\ a_{mn}
+        \end{pmatrix}\in\mathbb{R}^m
+    \end{align*}
+    Wir definieren nun die Matrix $A$ durch
+    \[
+        A := \begin{pmatrix}
+            a_{11} & a_{12} & \dots & a_{1n}\\
+            \vdots & \vdots& &\vdots\\
+            a_{m1} & a_{m2} & \dots & a_{mn}
+        \end{pmatrix} = \begin{pmatrix}
+            Te_1 & Te_2 & \dots & Te_n
+        \end{pmatrix}
+    \]
+    wobei $A\in M(m\times n)$. Jetzt müssen wir \underline{noch zeigen} $f_A = T$. Sei $x = \begin{pmatrix}
+        x_1\\\vdots\\ x_n
+    \end{pmatrix}\in\mathbb{R}^n$.
+    \begin{align*}
+        \implies x &= \begin{pmatrix}
+            x_1\\\vdots\\ x_n
+        \end{pmatrix} = \begin{pmatrix}
+            x_1\\0\\\vdots\\0
+        \end{pmatrix} + \dots + \begin{pmatrix}
+            0\\\vdots\\0 \\x_n
+        \end{pmatrix} = x_1 \begin{pmatrix}
+            1\\0\\\vdots\\0
+        \end{pmatrix} + \dots + x_n \begin{pmatrix}
+            0\\\vdots\\0\\1
+        \end{pmatrix}\\
+        x &= x_1e_1 + \dots + x_ne_n\\
+        \implies f_A(x) &= f_A(x_1e_1 + \dots + x_ne_n) \underset{f_A \text{ linear}}{=} x_1f_A(e_1) + \dots + x_nf_A(e_n)\\
+        &= x_1Ae_1 + \dots + x_nAe_n = x_1 \begin{pmatrix}
+            a_{11}\\\vdots\\a_{m1}
+        \end{pmatrix} + \dots + x_n \begin{pmatrix}
+            a_{1n}\\\vdots\\a_{mn}
+        \end{pmatrix}\\
+        &= x_1T(e_1) + \dots + x_nT(e_n)\quad(\text{Definition von } A)\\
+        &= T(x_1e_1 + \dots + x_ne_n) = T(x)\quad (T \text{ ist linear})\\
+        \biimplies f_A(x) &= T(x)\qquad\forall x \in \mathbb{R}^n
+    \end{align*}
+\end{proof}

@@ -1,11 +1,144 @@
 \section{Frage 6}
-\textbf{TODO: Meint er nur ein Beispiel oder Lösung mittels Gauß?}\\
 \textit{Beispiele zu linearen Gleichungssystemen.}
 \begin{example}
-    Lineares Gleichungssystem als Gleichungen.
-    \begin{align*}
-        2x_1 + x_2 - 2x_3 + 3x_4 &= 4\\
-        3x_1 + 2x_2 - x_3 + 2x_4 &= 6\\
-        3x_1 + 3x_2 + 3x_3- 3x_4 &= 6
-    \end{align*}
+    Lineares Gleichungssystem als eine Menge an Gleichungen.
+    \begin{gather*}
+        \sysdelim..
+        \systeme{
+            2x_1 + x_2 - 2x_3 + 3x_4 = 4,
+            3x_1 + 2x_2 - x_3 + 2x_4 = 6,
+            3x_1 + 3x_2 + 3x_3- 3x_4 = 6
+        }
+    \end{gather*}
+    \begin{elimination}[3]{4}{1.5em}{1.5}
+        \eliminationstep
+        {
+            2 & 1 & -2 & 3 & 4\\
+            3 & 2 & -1 & 2 & 6\\
+            3 & 3 & 3 & -3 & 6
+        }
+        {
+            \frac{1}{2}\cdot \text{I}
+        }
+        \eliminationstep
+        {
+            1 & \frac{1}{2} & -1 & \frac{3}{2} & 2\\
+            3 & 2 & -1 & 2 & 6\\
+            3 & 3 & 3 & -3 & 6
+        }
+        {
+            (-3)\text{I} + \text{II} \to \text{II}\\
+            (-3)\text{I} + \text{III} \to \text{III}
+        }
+        \\[10pt]
+        \eliminationstep
+        {
+            1 & \frac{1}{2} & -1 & \frac{3}{2} & 2\\
+            0 & \frac{1}{2} & 2 & -\frac{5}{2} & 0\\
+            0 & \frac{3}{2} & 6 & -\frac{15}{2} & 0
+        }
+        {
+            2\cdot\text{II}
+        }
+        \eliminationstep
+        {
+            1 & \frac{1}{2} & -1 & \frac{3}{2} & 2\\
+            0 & 1 & 4 & -5 & 0\\
+            0 & \frac{3}{2} & 6 & -\frac{15}{2} & 0
+        }
+        {
+            (-\frac{3}{2})\text{II} + \text{III} \to \text{III}
+        }
+        \\[10pt]
+        \eliminationstep
+        {
+            1 & \frac{1}{2} & -1 & \frac{3}{2} & 2\\
+            0 & 1 & 4 & -5 & 0\\
+            0 & 0 & 0 & 0 & 0
+        }
+        {
+            (-\frac{3}{2})\text{II} + \text{I} \to \text{I}
+        }
+        \eliminationstep
+        {
+            1 & 0 & -3 & 4 & 2\\
+            0 & 1 & 4 & -5 & 0\\
+            0 & 0 & 0 & 0 & 0
+        }
+        {
+            \\
+        }
+    \end{elimination}
+    \[
+        \implies x = \begin{pmatrix}
+            2\\0\\0\\0
+        \end{pmatrix} + \lambda_1 \begin{pmatrix}
+            3\\-4\\1\\0
+        \end{pmatrix} + \lambda_2 \begin{pmatrix}
+            -4\\5\\0\\1
+        \end{pmatrix}
+    \]
+\end{example}
+\begin{example}
+    $Ax=b$ mit
+    \[
+    A = \begin{pmatrix}
+        4 & 1 & -1\\
+        -2 & 0 & 3\\
+        2 & 1 & 2
+    \end{pmatrix}, b = \begin{pmatrix}
+        0\\0\\1
+    \end{pmatrix}
+    \]
+    \begin{elimination}[3]{3}{1.1em}{1.5}
+        \eliminationstep
+        {
+            4 & 1 & -1 & 0\\
+            -2 & 0 & 3 & 0\\
+            2 & 1 & 2 & 1
+        }
+        {
+            \frac{1}{4}\cdot \text{I}
+        }
+        \eliminationstep
+        {
+            1 & \frac{1}{4} & -\frac{1}{4} & 0\\
+            -2 & 0 & 3 & 0\\
+            2 & 1 & 2 & 1
+        }
+        {
+            2\text{I} + \text{II} \to \text{II}\\
+            (-2)\text{I} + \text{III} \to \text{III}
+        }
+        \\[10pt]
+        \eliminationstep
+        {
+            1 & \frac{1}{4} & -\frac{1}{4} & 0\\
+            0 & \frac{1}{2} & \frac{5}{2} & 0\\
+            0 & \frac{1}{2} & \frac{5}{2} & 1
+        }
+        {
+            2\cdot\text{II}
+        }
+        \eliminationstep
+        {
+            1 & \frac{1}{4} & -\frac{1}{4} & 0\\
+            0 & 1 & 5 & 0\\
+            0 & \frac{1}{2} & \frac{5}{2} & 1
+        }
+        {
+            (-\frac{1}{2})\text{II} + \text{III} \to \text{III}
+        }
+        \\[10pt]
+        \eliminationstep
+        {
+            1 & \frac{1}{4} & -\frac{1}{4} & 0\\
+            0 & 1 & 5 & 0\\
+            0 & 0 & 0 & 1
+        }
+        {
+            \\
+        }
+    \end{elimination}
+    Da die letzte Zeile keine $0$ in der letzten Spalte hat, ist das Gleichungssystem \underline{nicht lösbar}.
 \end{example}
