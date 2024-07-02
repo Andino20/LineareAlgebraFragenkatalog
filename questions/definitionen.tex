@@ -1,4 +1,4 @@
-\section{Definitionen}
+\section{Definitionen u. Ergänzungen}
 \begin{definition}
     [Norm] Sei $V$ ein $\mathbb{K}$-Vektorraum. Eine Abbildung
     \[
@@ -47,4 +47,127 @@
         U^\bot := \{x\in V\mid \inner{x}{u}=0\qquad\forall u \in U\}    
     \]
     das \underline{orthogonale Komplement} von $U$.
+\end{definition}
+\begin{definition}
+    [orthogonale Projektion] Sei $V$ ein endlichdimensionaler euklidischer Vektorraum 
+    und $U\subseteq V$ ein Teilraum, also:
+    \[
+        \forall x \in V\ \exists! x_1\in U, x_2\in U^\bot\text{ mit } x = x_1 + x_2
+    \]
+    Dann heißt 
+    \begin{align*}
+        \pi_U : V &\to U\\
+        x&\mapsto x_2
+    \end{align*}
+    die \underline{orthogonale Projektion auf $U$} und
+    \begin{align*}
+        \pi_{U^\bot} : V &\to U^\bot\\
+        x &\mapsto x_2
+    \end{align*}
+    die \underline{orthogonale Projektion auf $U^\bot$}.
+\end{definition}
+\begin{definition}
+    [Kern und Bild v. linearen Abbildungen] Seien $V,W$ Vektorräume und $T:~V\to~W$ eine lineare Abbildung.
+    \begin{align*}
+        \mathrm{im}\ T &:=\{T(x)\mid x\in V\} = \{y\in W\mid \exists x \in V \text{ mit } T(x)=y\}\qquad\text{\dots Bild von }T\\
+        \mathrm{ker}\ T &:= \{x\in V\mid T(x) = 0\}\qquad \dots\text{Kern von }T
+    \end{align*}
+    Weiters gilt:
+    \begin{enumerate}
+        \item[(a)] $\mathrm{im}\ T$ ist ein Teilraum von $W$.
+        \item[(b)] $\mathrm{ker}\ T$ ist ein Teilraum von $V$.
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    [Winkel zwischen zwei Vektoren] Sei $\inner{\ .\ }{\ .\ } :V\to\mathbb{R}$ das reelle Standard-skalarprodukt
+    des Vektorraums $V$ und $x,y\in V$. Dann gilt
+    \[
+        \inner{x}{y} = \cos \varphi\norm{x}\norm{y} = \cos \varphi \sqrt{\inner{x}{x}}\sqrt{\inner{y}{y}}.
+    \]
+    Durch Äquivalenzumformungen erhält man für den Winkel $\varphi$ zwischen den Vektoren $x,y$
+    \[
+        \varphi = \arccos \left(\frac{
+            \inner{x}{y}
+        }{
+            \norm{x}\norm{y}
+        }\right)
+    \]
+\end{definition}
+\begin{definition}
+    [geometrische Vielfachheit] Die Dimension eines Eigenraums $\mathrm{dim}\ E_\lambda$ heißt
+    die \underline{geometrische Vielfachheit} von $\lambda$.
+\end{definition}
+\begin{definition}
+    [Gruppe] Sei $G$ eine Menge. Sei weiters
+    \begin{align*}
+        +: G\times G &\to G\\
+        (a,b)&\mapsto a + b
+    \end{align*}
+    eine Verknüpfung über der Menge $G$. Man nennt $(G,+)$ eine \underline{Gruppe}, wenn folgende Gesetze erfüllt sind
+    \begin{enumerate}
+        \item[(1)] Assoziativitätsgesetz.
+        \[
+            \forall a,b,c\in G : a + (b + c) = (a + b) + c
+        \]
+        \item[(2)] Neutrales Element
+        \[
+            \exists e \in G, \forall a\in G : a + e = a
+        \]
+        \item[(3)] Inverses Element 
+        \[
+            \forall a \in G, \exists a^{-1}\in G : a + a^{-1} = e
+        \]
+    \end{enumerate}
+    Gilt außerdem noch das Kommutativgesetz
+    \[
+        \forall a,b\in G : a + b = b + a
+    \]
+    sagt man auch \underline{abelsche Gruppe} dazu.
+\end{definition}
+\begin{definition}
+    [Körper] Ein Körper ist ein Tupel $(\mathbb{K}, +, \cdot)$, wobei $\mathbb{K}$ eine Menge und $+,\cdot$ zwei Verknüpfungen über
+    der Grundmenge sind
+    \begin{align*}
+        + : \mathbb{K} \times \mathbb{K} &\to \mathbb{K}\\
+        (a,b) &\mapsto a + b\\
+        \cdot : \mathbb{K} \times \mathbb{K} &\to \mathbb{K}\\
+        (a,b)&\mapsto a\cdot b
+    \end{align*}
+    und außerdem folgende Bedingungen gelten
+    \begin{enumerate}
+        \item $(K,+)$ ist eine abelsche Gruppe mit dem neutralen Element $0$,
+        \item $(K\backslash\{0\}, \cdot)$ ist eine abelsche Gruppe mit dem neutralen Element $1$,
+        \item Das Distributivitätsgesetz gilt:
+        \[
+            a \cdot (b + c) =  a\cdot b + a\cdot c\text{ und } (a + b) \cdot c = a\cdot c + b\cdot c\qquad\forall a,b,c\in\mathbb{K}
+        \]
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    [Matrix] Eine $m\times n$-Matrix $A$ ist eine Anordnung von $m\cdot n$ Elementen nach folgendem Rechteckschema
+    \[
+        A = \begin{pmatrix}
+            a_{11} & a_{12} & \dots & a_{1n}\\
+            a_{21} & a_{22} & \dots & a_{2n}\\
+            \vdots & & & \vdots\\
+            a_{m1} & a_{m2} & \dots & a_{mn}
+        \end{pmatrix}.
+    \]
+    Schreibweise: $A=(a_{ij})^{m,n}_{i,j=1} = (a_{ij})$.\\
+    $a_{ij}$ heißt der \underline{Koeffizient} der Matrix A in der $i$-ten Zeile und der $j$-ten Spalte.
+    \begin{align*}
+        \begin{pmatrix}
+            a_{i1} & \dots & a_{1n}
+        \end{pmatrix}\qquad&(i = 1,\dots,m)\quad\text{Zeilen}\\
+        \begin{pmatrix}
+            a_{1j}\\
+            \vdots\\
+            a_{mj}
+        \end{pmatrix}\qquad&(j=1,\dots,n)\quad\text{Spalten}
+    \end{align*}
+    $M(m\times n)$ ist die Menge aller $m\times n$-Matrizen.
+\end{definition}
+\begin{definition}
+    [Komplexität der Matrixmultiplikation] Bei zwei quadratischen Matrizen ist die Laufzeit 
+    der Multiplikationen $\mathcal{O}(n^3)$.
 \end{definition}
