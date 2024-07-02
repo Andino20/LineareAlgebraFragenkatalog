@@ -1,0 +1,50 @@
+\section{Definitionen}
+\begin{definition}
+    [Norm] Sei $V$ ein $\mathbb{K}$-Vektorraum. Eine Abbildung
+    \[
+        \norm{\ .\ }:V\to\mathbb{R}    
+    \]
+    heißt \textbf{Norm}, wenn folgendes gilt:
+    \begin{enumerate}
+        \item[(1)] $\forall x \in V :$
+        \begin{gather*}
+            \norm{x} \geq 0\\
+            \norm{x} = 0 \Leftrightarrow x = 0
+        \end{gather*}
+        \item[(2)] $\forall x\in V,\forall \lambda \in \mathbb{K}:$
+        \[
+            \norm{\lambda x} = \vert \lambda \vert\norm{x}    
+        \]
+        \item[(3)] Dreiecksungleichung $\forall x,y\in V :$
+        \[
+            \norm{x + y} \leq \norm{x} + \norm{y}    
+        \]
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    [euklidische Norm] Sei $V$ ein euklidischer Vektorraum, dann ist
+    \[
+        \norm{x}:=\sqrt{\inner{x}{x}}\qquad\forall x\in V    
+    \]
+    eine Norm. $\norm{x}$ heißt dann die euklidische Norm (oder $L^2$-Norm).
+\end{definition}
+\begin{definition}
+    [Koordinatenvektor] Sei $\{v_1,\dots,v_n\}$ eine Orthonormalbasis. Dann ist der
+    Koordinatenvektor $x_B$ von $x\in V$ bezüglich der Orthonormalbasis 
+    $B=\{v_1,\dots,v_n\}$
+    \[
+        x_B = \begin{pmatrix}
+            \inner{x}{v_1}\\
+            \vdots\\
+            \inner{x}{v_n}
+        \end{pmatrix}
+    .\] $\inner{x}{v_i}$ heißt auch der $i$-te Fourierkoeffizient von $x$.
+\end{definition}
+\begin{definition}
+    [orthogonales Komplement] Sei $V$ ein euklidischer Vektorraum, $U$ ein Teilraum
+    von $V$. Dann heißt
+    \[
+        U^\bot := \{x\in V\mid \inner{x}{u}=0\qquad\forall u \in U\}    
+    \]
+    das \underline{orthogonale Komplement} von $U$.
+\end{definition}
